@@ -1,5 +1,3 @@
-Here is an impressive, ready-to-copy HTML document for a GitHub README page that showcases a Flowcode project involving an LCD and keypad.
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -625,4 +623,3 @@ ENDWHILE`;
 </script>
 </body>
 </html>
-```
