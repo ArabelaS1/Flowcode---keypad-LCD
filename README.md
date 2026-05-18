@@ -1,201 +1,65 @@
-# 🔐 Pametni Sigurnosni Sistem sa Keypadom i LED Indikatorima
-
+<!-- HEADER SECTION -->
 <div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Flowcode%20Keypad%20%26%20LCD&fontSize=40&animation=fadeIn" width="100%" />
+  
+  <p align="center">
+    <const badge>
+      <img src="https://img.shields.io/badge/Flowcode-v10-blue?style=for-the-badge&logo=microarchitecture" />
+    </const>
+    <const badge>
+      <img src="https://img.shields.io/badge/Hardware-PIC%20%2F%20Arduino-orange?style=for-the-badge&logo=hardware" />
+    </const>
+    <const badge>
+      <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" />
+    </const>
+  </p>
 
-![FlowCode](https://img.shields.io/badge/FlowCode-Embedded%20Systems-blue?style=for-the-badge)
-![Microcontroller](https://img.shields.io/badge/Microcontroller-Simulation-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
-![Project](https://img.shields.io/badge/Project-Keypad%20Security%20System-orange?style=for-the-badge)
-
----
-
-### 🚀 Interaktivni Embedded Systems Projekat napravljen u FlowCode okruženju
-
-### 🔢 Keypad Ulaz • 💡 LED Signalizacija • 🔒 Kontrola Pristupa
-
+  <h3>🚀 Napredni Embedded Sistem za Unos i Prikaz Podataka</h3>
+  <p>Implementacija matrice tastature (Keypad 4x4) i LCD displeja unutar Flowcode okruženja sa optimizovanim algoritmom za obradu pritiska tastera.</p>
 </div>
 
----
+<br/>
 
-# 📌 Opis Projekta
+<!-- O PROJEKTU -->
+## 📝 O Projektu
 
-Ovaj projekat predstavlja jednostavan ali efektivan sigurnosni sistem napravljen u **FlowCode-u** koristeći:
+Ovaj projekat predstavlja napredno rešenje za komunikaciju između korisnika i mikrokontrolera. Koristeći **Flowcode** grafičko programiranje, uspešno je implementirana kontrola **4x4 Keypad-a** i **16x2 LCD-a** (ili 20x4). Sistem je dizajniran tako da minimizira opterećenje procesora (debouncing tastera je rešen softverski) i omogućava fluidan ispis u realnom vremenu.
 
-- 🔢 4x4 Matrix Keypad
-- 💡 LED indikatore
-- ⚙️ Embedded logiku
-- 🧠 Verifikaciju šifre
+### ✨ Ključne Karakteristike:
+*   **Dynamic LCD Refresh:** Pametno osvežavanje ekrana bez treperenja (flicker-free).
+*   **Debounce Algoritam:** Eliminisan "double-tap" efekat mehaničkih tastera.
+*   **Modularni Flowcode Makroi:** Kod je podeljen na jasne celine (Inicijalizacija, Unos, Obrada, Prikaz).
+*   **Univerzalna Arhitektura:** Lako se portuje na PIC, AVR (Arduino) ili STM32 mikrokontrolere.
 
-Korisnik putem keypad-a unosi šifru, a sistem provjerava da li je uneseni kod tačan.
+<br/>
 
-Nakon provjere:
-- 🟢 Zelena LED označava uspješan pristup
-- 🔴 Crvena LED označava pogrešnu šifru
+<!-- HARDVERSKE KOMPONENTE -->
+## 🛠️ Hardverska Arhitektura
 
----
+Projekat je testiran i simuliran sa sledećim komponentama:
 
-# ✨ Funkcionalnosti
+| Komponenta | Tip/Model | Svrha |
+| :--- | :--- | :--- |
+| **Mikrokontroler** | PIC16F877A / ATmega328P | Glavni kontroler |
+| **Displej** | LCD 16x2 (HD44780) | Prikaz korisničkog interfejsa |
+| **Unos** | Matrični Keypad 4x4 | Unos karaktera i komandi |
+| **Oscilator** | Kristal 19.66MHz / 16MHz | Stabilan takt sistema |
 
-✅ Unos šifre preko keypad-a  
-✅ Obrada korisničkog unosa  
-✅ Verifikacija pristupnog koda  
-✅ LED signalizacija  
-✅ Embedded systems simulacija  
-✅ FlowCode implementacija  
-✅ Jednostavan i pregledan dizajn sistema  
+<br/>
 
----
+<!-- KAKO RADI / ALGORITAM -->
+## 🔄 Logika i Algoritam (Flowchart)
 
-# 🛠️ Korištene Tehnologije
+Sistem se oslanja na state-mašinu koja konstantno skenira redove i kolone tastature.
 
-| Tehnologija | Opis |
-|---|---|
-| FlowCode | Vizuelno programiranje mikrokontrolera |
-| Embedded Systems | Implementacija logike sistema |
-| Keypad Matrix | Unos podataka |
-| LED Output | Vizuelna signalizacija |
-| Microcontroller Simulation | Simulacija rada uređaja |
-
----
-
-# ⚡ Način Rada Sistema
-
-```text
-Pokretanje Sistema
-        ↓
-Čekanje unosa preko keypad-a
-        ↓
-Korisnik unosi šifru
-        ↓
-Provjera unesenog koda
-   ↓                ↓
-Tačno           Pogrešno
-   ↓                ↓
-🟢 Zelena LED   🔴 Crvena LED
-```
-
----
-
-# 🎮 Simulacija
-
-## 🟢 Tačna Šifra
-Sistem dozvoljava pristup i aktivira zelenu LED signalizaciju.
-
-## 🔴 Pogrešna Šifra
-Sistem odbija pristup i uključuje crvenu LED signalizaciju.
-
----
-
-# 📷 Pregled Projekta
-
-## 🔧 FlowCode Dizajn
-![FlowCode Preview](https://via.placeholder.com/900x400.png?text=FlowCode+Project+Preview)
-
-## 💡 Simulacija Rada
-![Simulation](https://via.placeholder.com/900x400.png?text=Keypad+and+LED+Simulation)
-
----
-
-# 📂 Struktura Projekta
-
-```bash
-📁 Keypad-Security-System
- ┣ 📄 README.md
- ┣ 📄 keypad_system.fcfx
- ┣ 📁 images
- ┃ ┣ 📄 simulation.png
- ┃ ┗ 📄 schematic.png
- ┗ 📄 project_documentation.pdf
-```
-
----
-
-# 🚀 Pokretanje Projekta
-
-## 1️⃣ Otvoriti projekat u FlowCode-u
-
-```bash
-keypad_system.fcfx
-```
-
-## 2️⃣ Pokrenuti simulaciju
-
-Kliknuti na:
-
-```text
-Run Simulation
-```
-
-## 3️⃣ Unijeti šifru preko keypad-a
-
-Sistem automatski:
-- obrađuje unos
-- provjerava kod
-- aktivira odgovarajuću LED
-
----
-
-# 🧠 Logika Projekta
-
-Sistem koristi:
-
-- skeniranje keypad matrice
-- privremeno spremanje unosa
-- poređenje sa memorisanom šifrom
-- kontrolu izlaznih komponenti
-
----
-
-# 🔮 Buduća Poboljšanja
-
-🚪 Servo motor za vrata  
-📟 LCD ekran za prikaz poruka  
-🔊 Buzzer alarm  
-💾 EEPROM memorija za šifre  
-👤 Više korisničkih naloga  
-📡 IoT povezivanje  
-📱 Mobilna kontrola sistema  
-
----
-
-# 📊 Cilj Projekta
-
-Cilj projekta je demonstracija:
-
-- rada embedded sistema
-- obrade korisničkog unosa
-- upravljanja izlaznim komponentama
-- implementacije sigurnosne logike
-
----
-
-# 💻 Edukativna Vrijednost
-
-Ovaj projekat je odličan za učenje:
-
-✅ Embedded Systems  
-✅ Mikrokontrolera  
-✅ Digitalne elektronike  
-✅ Keypad komunikacije  
-✅ LED upravljanja  
-✅ FlowCode razvoja  
-
----
-
-# 🌟 Autor
-
-<div align="center">
-
-## 👨‍💻 Razvijeno sa strašću prema elektronici i embedded sistemima
-
-### ⚡ FlowCode • Embedded Systems • Security Logic
-
-</div>
-
----
-
-<div align="center">
-
-# ⭐ Ako ti se projekat sviđa, ostavi ⭐ na repository-u
-
-</div>
+```mermaid
+graph TD
+    A[Start] --> B[Inicijalizacija LCD-a i Keypad-a]
+    B --> C[Prikaži Welcome Screen]
+    C --> D[Skeniraj Keypad 4x4]
+    D --> E{Taster pritisnut?}
+    E -- Ne --> D
+    E -- Da --> F[Softverski Debounce 20ms]
+    F --> G[Konvertuj Matrix Code u ASCII]
+    G --> H[Ispiši karakter na LCD]
+    H --> D
