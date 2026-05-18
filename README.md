@@ -1,282 +1,51 @@
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" width="40" /> FLOWCODE SYSTEM: LCD & MATRIX KEYPAD
+
 <div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:38bdf8,100:a855f7&height=240&section=header&text=EMBEDDED%20DASHBOARD&fontSize=70&fontAlignY=35&animation=twinkling&desc=Keypad%20Matrix%20%E2%80%A2%20LCD%2016x2%20%E2%80%A2%20Flowcode%20V10&descAlignY=55&descSize=20" width="100%" />
 
-# ⚡ NEURAL ACCESS MATRIX ⚡
+  <br/>
 
-### 🔐 Inteligentni Embedded Security Sistem baziran na Keypad Autentifikaciji
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=28&duration=3000&color=00F7FF&center=true&vCenter=true&width=900&lines=FLOWCODE+EMBEDDED+SYSTEM;KEYPAD+AUTHENTICATION+MODULE;REALTIME+INPUT+PROCESSING;LED+SECURITY+SIGNALING;MICROCONTROLLER+SIMULATION" />
-
----
-
-<img src="https://img.shields.io/badge/FlowCode-Embedded%20Development-0d1117?style=for-the-badge&logo=codeforces&logoColor=00F7FF"/>
-<img src="https://img.shields.io/badge/System-Security%20Simulation-0d1117?style=for-the-badge&logo=hackaday&logoColor=00F7FF"/>
-<img src="https://img.shields.io/badge/Status-Operational-0d1117?style=for-the-badge&logo=powerpages&logoColor=00F7FF"/>
-<img src="https://img.shields.io/badge/Architecture-Embedded%20Logic-0d1117?style=for-the-badge&logo=microchip&logoColor=00F7FF"/>
-
----
-
-```text
-[ INITIALIZING SECURITY MATRIX . . . ]
-[ LOADING EMBEDDED CONTROL MODULES ]
-[ ACCESS CONTROL SYSTEM ONLINE ]
-[ INPUT MONITORING ACTIVE ]
-```
-
+  <p align="center">
+    <img src="https://img.shields.io/badge/System-Active-00FF00?style=for-the-badge&logo=cpu&logoColor=white" />
+    <img src="https://img.shields.io/badge/Input-4x4_Matrix-38bdf8?style=for-the-badge&logo=pypy&logoColor=white" />
+    <img src="https://img.shields.io/badge/Output-LCD_16x2-a855f7?style=for-the-badge&logo=monitor&logoColor=white" />
+  </p>
 </div>
 
 ---
 
-# 🧠 O PROJEKTU
-
-**Neural Access Matrix** predstavlja napredni simulacijski embedded security sistem razvijen u **FlowCode** okruženju koristeći kombinaciju:
-
-- 🔢 Matrix Keypad interfejsa
-- 💡 Inteligentne LED signalizacije
-- ⚙️ Mikrokontrolerske logike
-- 🧬 Realtime autentifikacijskog procesa
-
-Sistem simulira sigurnosni pristupni modul koji u realnom vremenu analizira korisnički unos i donosi odluku o autorizaciji pristupa.
-
----
-
-# ⚡ CORE FUNKCIONALNOSTI
-
-<table>
-<tr>
-<td width="50%">
-
-## 🔐 AUTHENTICATION ENGINE
-
-- Verifikacija sigurnosnog koda
-- Realtime unos podataka
-- Analiza korisničkog inputa
-- Embedded kontrolna logika
-- Upravljanje pristupom
-
-</td>
-<td width="50%">
-
-## 💡 SIGNALING SYSTEM
-
-- Zelena LED → autorizovan pristup
-- Crvena LED → odbijen pristup
-- Vizuelni status sistema
-- Dinamička reakcija sistema
-- Simulacija sigurnosnog alarma
-
-</td>
-</tr>
-</table>
-
----
-
-# 🛰️ SISTEMSKA ARHITEKTURA
-
-```text
-┌──────────────────────────────┐
-│      USER INPUT LAYER        │
-│        4x4 MATRIX KEYPAD     │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│    INPUT PROCESSING ENGINE   │
-│  REALTIME DATA INTERPRET.    │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│   AUTHENTICATION MODULE      │
-│  PASSWORD COMPARISON LOGIC   │
-└───────┬───────────┬──────────┘
-        │           │
-        ▼           ▼
-┌────────────┐ ┌────────────┐
-│ ACCESS OK  │ │ ACCESS DEN │
-│ GREEN LED  │ │  RED LED   │
-└────────────┘ └────────────┘
-```
-
----
-
-# 🔬 TEHNIČKA IMPLEMENTACIJA
-
-## 🛠️ KORIŠTENE TEHNOLOGIJE
-
-| Modul | Funkcija |
-|---|---|
-| FlowCode | Vizuelni embedded razvoj |
-| Keypad Matrix | Detekcija korisničkog unosa |
-| LED Interface | Vizuelna komunikacija |
-| Microcontroller Logic | Obrada podataka |
-| Realtime Processing | Analiza ulaza |
-
----
-
-# ⚙️ SISTEMSKI TOK
-
-```
-SYSTEM BOOT
-     ↓
-LOAD SECURITY PARAMETERS
-     ↓
-INITIALIZE INPUT CHANNELS
-     ↓
-WAIT FOR USER INPUT
-     ↓
-PROCESS KEYSTROKES
-     ↓
-VALIDATE ACCESS CODE
-     ↓
-┌───────────────┬───────────────┐
-│ VALID ACCESS  │ INVALID INPUT │
-└───────┬───────┴───────┬───────┘
-        ▼               ▼
- GREEN SIGNAL      RED ALERT
-```
-
----
-
-# 🧬 EMBEDDED LOGIC ENGINE
-
-Sistem koristi:
-
-- 📡 Matrix scanning algoritam
-- 🧠 Input buffering sistem
-- ⚡ Realtime autentifikaciju
-- 🔒 Sigurnosnu verifikaciju
-- 💡 LED output kontrolu
-
----
-
-# 📷 INTERFACE PREVIEW
-
+## 🛰️ Real-Time Logic Console
 <div align="center">
-
-## 🔧 FLOWCODE IMPLEMENTACIJA
-
-![FlowCode](https://via.placeholder.com/1200x500/0d1117/00F7FF?text=FLOWCODE+EMBEDDED+ARCHITECTURE)
-
----
-
-## ⚡ REALTIME SECURITY SIMULATION
-
-![Simulation](https://via.placeholder.com/1200x500/0d1117/00F7FF?text=REALTIME+AUTHENTICATION+SYSTEM)
-
+  <table border="0">
+    <tr>
+      <td bgcolor="#0d1117">
+        <p align="center"><strong>📟 LCD SIMULATOR</strong></p>
+        <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=ADFF9E&background=152222&width=435&lines=%3E_Initializing_System...;%3E_Flowcode_v10_Detected;%3E_Keypad_Scanning...;%3E_Input_Buffer_Ready" alt="Typing SVG" />
+      </td>
+    </tr>
+  </table>
 </div>
 
 ---
 
-# 🚀 POKRETANJE SISTEMA
+## 🧬 Arhitektura Algoritma (Flowchart)
+Ovaj dijagram koristi **Mermaid** engine koji GitHub renderuje sa oštrim, modernim linijama.
 
-## 🔹 KORAK 1
+```mermaid
+graph LR
+    %% Definisanje stilova
+    classDef hardware fill:#1e2a3a,stroke:#38bdf8,stroke-width:2px,color:#fff;
+    classDef logic fill:#0f172a,stroke:#a855f7,stroke-width:2px,color:#fff;
+    classDef output fill:#1c2c2c,stroke:#adff9e,stroke-width:2px,color:#adff9e;
 
-Otvoriti `.fcfx` projekat unutar FlowCode okruženja.
+    A[POWER ON] --> B{SCAN ROWS}
+    B -- Pulse --> C[READ COLUMNS]
+    C --> D{KEY PRESSED?}
+    D -- YES --> E[DEBOUNCE LOGIC]
+    E --> F[ASCII CONVERSION]
+    F --> G[LCD WRITE]
+    G --> B
 
-```bash
-Neural_Access_Matrix.fcfx
-```
-
----
-
-## 🔹 KORAK 2
-
-Pokrenuti simulaciju sistema.
-
-```text
-RUN → START SIMULATION
-```
-
----
-
-## 🔹 KORAK 3
-
-Koristiti keypad za unos sigurnosnog koda.
-
-Sistem automatski:
-- procesuira input
-- analizira kod
-- validira pristup
-- aktivira signalizaciju
-
----
-
-# 🧪 TESTING MOD
-
-| Test Scenario | Rezultat |
-|---|---|
-| Tačna šifra | 🟢 ACCESS GRANTED |
-| Pogrešna šifra | 🔴 ACCESS DENIED |
-| Nepotpuni unos | ⚠️ INPUT REJECTED |
-| Realtime unos | ⚡ ACTIVE PROCESSING |
-
----
-
-# 🌌 BUDUĆA NADOGRADNJA
-
-## 🔮 PLANIRANE FUNKCIONALNOSTI
-
-- 📟 LCD status ekran
-- 📡 IoT integracija
-- 📲 Mobilna kontrola
-- 🧠 Smart authentication
-- 🚪 Servo door mechanism
-- 🔊 Alarm subsystem
-- ☁️ Cloud monitoring
-- 👤 Multi-user security layer
-
----
-
-# 📁 STRUKTURA REPOZITORIJA
-
-```bash
-📦 Neural-Access-Matrix
- ┣ 📂 core
- ┃ ┗ 📄 keypad_system.fcfx
- ┣ 📂 assets
- ┃ ┣ 📄 simulation.png
- ┃ ┣ 📄 architecture.png
- ┃ ┗ 📄 interface.png
- ┣ 📂 docs
- ┃ ┗ 📄 technical_documentation.pdf
- ┗ 📄 README.md
-```
-
----
-
-# 🎯 CILJ PROJEKTA
-
-Ovaj projekat demonstrira:
-
-- embedded systems arhitekturu
-- autentifikacione mehanizme
-- obradu korisničkog inputa
-- sigurnosne logičke sisteme
-- realtime mikrokontrolersku simulaciju
-
----
-
-# 👨‍💻 AUTOR
-
-<div align="center">
-
-# ⚡ DEVELOPED FOR EMBEDDED SYSTEMS & SECURITY ENGINEERING ⚡
-
-```text
-> SYSTEM DESIGN
-> SECURITY LOGIC
-> FLOWCODE DEVELOPMENT
-> REALTIME PROCESSING
-```
-
----
-
-<img src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight&hide_border=true"/>
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_USERNAME&theme=tokyonight&hide_border=true"/>
-
----
-
-# ⭐ ACCESS THE FUTURE OF EMBEDDED SECURITY ⭐
-
-</div>
+    class A,B,C hardware;
+    class D,E,F logic;
+    class G output;
