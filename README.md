@@ -73,16 +73,6 @@
             gap: 12px;
         }
 
-        .flowcode-badge {
-            background: #1f2937;
-            padding: 0.3rem 1rem;
-            border-radius: 60px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #94a3b8;
-            border: 1px solid #334155;
-        }
-
         .status-chip {
             background: rgba(56, 189, 248, 0.15);
             backdrop-filter: blur(4px);
@@ -181,6 +171,7 @@
             min-height: 90px;
             font-weight: 500;
             font-family: monospace;
+            white-space: pre-wrap;
         }
 
         .keypad-matrix {
@@ -210,6 +201,7 @@
             transition: 0.07s linear;
             cursor: pointer;
             border: 1px solid #334155;
+            user-select: none;
         }
 
         .key:active {
@@ -284,6 +276,7 @@
             align-items: center;
             gap: 8px;
             cursor: pointer;
+            user-select: none;
         }
 
         .btn-primary {
@@ -371,10 +364,7 @@
             </div>
             <div class="lcd-panel">
                 <div class="lcd-screen">
-                    <div class="lcd-text" id="lcdLivePreview">
-                        > FlowCode Ready<br>
-                        > Press any key
-                    </div>
+                    <div class="lcd-text" id="lcdLivePreview">FlowCode v10&#10;LCD + Keypad Matrix</div>
                 </div>
                 <div style="margin-top: 12px; font-size: 12px; color:#6c81a5; display: flex; justify-content: space-between;">
                     <span>📟 16x2 Character LCD</span>
@@ -387,7 +377,25 @@
                     <span class="section-title" style="border-left-color: #a855f7;">🔢 4x4 Matrix Keypad</span>
                     <span style="font-size: 0.7rem; background:#00000055; padding: 3px 8px; border-radius: 40px;">GPIO mapped rows/cols</span>
                 </div>
-                <div class="grid-keypad" id="interactiveKeypad"></div>
+                <!-- RUČNO STRUCTURIRAN GRID RADI SIGURNOSTI I BRZINE -->
+                <div class="grid-keypad" id="interactiveKeypad">
+                    <div class="key" onclick="handleKeyPress('1')">1</div>
+                    <div class="key" onclick="handleKeyPress('2')">2</div>
+                    <div class="key" onclick="handleKeyPress('3')">3</div>
+                    <div class="key" onclick="handleKeyPress('A')">A</div>
+                    <div class="key" onclick="handleKeyPress('4')">4</div>
+                    <div class="key" onclick="handleKeyPress('5')">5</div>
+                    <div class="key" onclick="handleKeyPress('6')">6</div>
+                    <div class="key" onclick="handleKeyPress('B')">B</div>
+                    <div class="key" onclick="handleKeyPress('7')">7</div>
+                    <div class="key" onclick="handleKeyPress('8')">8</div>
+                    <div class="key" onclick="handleKeyPress('9')">9</div>
+                    <div class="key" onclick="handleKeyPress('C')">C</div>
+                    <div class="key" onclick="handleKeyPress('*')">*</div>
+                    <div class="key" onclick="handleKeyPress('0')">0</div>
+                    <div class="key" onclick="handleKeyPress('#')">#</div>
+                    <div class="key" onclick="handleKeyPress('D')">D</div>
+                </div>
                 <div class="demo-status" id="keyFeedback">
                     ⌨️ Last Key: <span id="lastKeyVal">—</span> &nbsp;|&nbsp; Buffer: <span id="inputBuffer">_</span>
                 </div>
@@ -432,13 +440,13 @@
                         <tr><td style="padding:6px 0;">🔌 Components:</td><td>LCD (HD44780) + Keypad (Matrix 4x4)</td></tr>
                         <tr><td style="padding:6px 0;">⚙️ Interrupts:</td><td>Timer for periodic key scanning</td></tr>
                         <tr><td style="padding:6px 0;">🎛️ Simulation:</td><td>Proteus VSM / Flowcode SCADA ready</td></tr>
-                     </table>
+                    </table>
                 </div>
             </div>
 
             <div class="btn-group">
-                <div class="btn btn-primary" id="resetDemoBtn">⟳ Reset LCD & Buffer</div>
-                <div class="btn" id="copyFlowSnippet">📋 Copy FlowCode Macro</div>
+                <div class="btn btn-primary" onclick="resetSystem()">⟳ Reset LCD & Buffer</div>
+                <div class="btn" id="copyFlowSnippet" onclick="copyMacroSnippet()">📋 Copy FlowCode Macro</div>
             </div>
             <div class="pinout-example">
                 <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
@@ -457,15 +465,7 @@
 </div>
 
 <script>
-    const keyMap = [
-        ['1', '2', '3', 'A'],
-        ['4', '5', '6', 'B'],
-        ['7', '8', '9', 'C'],
-        ['*', '0', '#', 'D']
-    ];
-
     let inputString = "";
-    let lastKeyPressed = "—";
     const lcdDisplayElement = document.getElementById('lcdLivePreview');
     const lastKeySpan = document.getElementById('lastKeyVal');
     const bufferSpan = document.getElementById('inputBuffer');
@@ -473,129 +473,59 @@
     function updateLCDAndDisplay() {
         let firstLine = "FlowCode Ready";
         let secondLine = inputString.length > 0 ? inputString : "> Enter text";
+        
         if (secondLine.length > 16) secondLine = secondLine.slice(-16);
-        if (firstLine.length > 16) firstLine = firstLine.slice(0, 16);
-        lcdDisplayElement.innerHTML = `${firstLine}<br>${secondLine}`;
+        lcdDisplayElement.innerHTML = firstLine + "\n" + secondLine;
         bufferSpan.innerText = inputString.length ? inputString : "_";
     }
 
     function handleKeyPress(key) {
-        if (!key) return;
-        lastKeyPressed = key;
         lastKeySpan.innerText = key;
         
-        inputString += key;
-        if (inputString.length > 16) inputString = inputString.slice(-16);
-        updateLCDAndDisplay();
-
-        const activeButtons = document.querySelectorAll('.key');
-        activeButtons.forEach(btn => {
-            if (btn.innerText === key) {
-                btn.style.transform = "translateY(2px)";
-                btn.style.boxShadow = "0 1px 0 #0f172a";
-                setTimeout(() => {
-                    btn.style.transform = "";
-                    btn.style.boxShadow = "0 4px 0 #0f172a";
-                }, 100);
-            }
-        });
-
-        if (key === 'A') {
-            setTimeout(() => {
-                lcdDisplayElement.innerHTML = `> Admin mode<br>Key A pressed`;
-                setTimeout(() => updateLCDAndDisplay(), 800);
-            }, 50);
-        }
         if (key === 'D') {
             inputString = "";
             updateLCDAndDisplay();
-            lastKeySpan.innerText = key + " (clear)";
-            setTimeout(() => lastKeySpan.innerText = key, 800);
+            return;
         }
         if (key === '#') {
-            lcdDisplayElement.innerHTML = `✅ Data sent!<br>Buffer: ${inputString}`;
-            setTimeout(() => updateLCDAndDisplay(), 1200);
+            lcdDisplayElement.innerHTML = "✅ Data sent!\nBuffer: " + inputString;
+            setTimeout(updateLCDAndDisplay, 1200);
+            return;
         }
         if (key === '*') {
-            lcdDisplayElement.innerHTML = `🔒 Backspace<br>Removing last char`;
-            setTimeout(() => {
-                if (inputString.length > 0) inputString = inputString.slice(0, -1);
-                updateLCDAndDisplay();
-            }, 180);
+            if (inputString.length > 0) inputString = inputString.slice(0, -1);
+            updateLCDAndDisplay();
+            return;
         }
-    }
+        if (key === 'A') {
+            lcdDisplayElement.innerHTML = "> Admin mode\nKey A pressed";
+            setTimeout(updateLCDAndDisplay, 1000);
+            return;
+        }
 
-    function generateKeypadGrid() {
-        const container = document.getElementById('interactiveKeypad');
-        container.innerHTML = '';
-        for (let row = 0; row < keyMap.length; row++) {
-            for (let col = 0; col < keyMap[row].length; col++) {
-                const keyVal = keyMap[row][col];
-                const keyDiv = document.createElement('div');
-                keyDiv.className = 'key';
-                keyDiv.innerText = keyVal;
-                keyDiv.setAttribute('data-key', keyVal);
-                keyDiv.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    handleKeyPress(keyVal);
-                });
-                container.appendChild(keyDiv);
-            }
-        }
+        inputString += key;
+        if (inputString.length > 16) inputString = inputString.slice(-16);
+        updateLCDAndDisplay();
     }
 
     function resetSystem() {
         inputString = "";
-        lastKeyPressed = "—";
         lastKeySpan.innerText = "—";
-        updateLCDAndDisplay();
-        lcdDisplayElement.innerHTML = "FlowCode Ready<br>System Reset OK";
-        setTimeout(() => updateLCDAndDisplay(), 600);
-        const resetBtn = document.getElementById('resetDemoBtn');
-        resetBtn.style.transform = "scale(0.97)";
-        setTimeout(() => resetBtn.style.transform = "", 150);
+        lcdDisplayElement.innerHTML = "FlowCode Ready\nSystem Reset OK";
+        setTimeout(updateLCDAndDisplay, 800);
     }
 
     function copyMacroSnippet() {
-        const snippet = `// FlowCode Macro: GetKeypad & LCD_Print
-// 1. Call "Keypad::GetKeyPressed()" -> returns ASCII char
-// 2. If key != 0 then LCD::PrintCharacter(key)
-// 3. Use delay for debounce (10ms)
-WHILE (1)
-   key = Keypad::GetKey()
-   IF (key != 0)
-      LCD::PrintString("Pressed: ")
-      LCD::PrintCharacter(key)
-      DELAY_MS(200)
-   ENDIF
-ENDWHILE`;
+        const snippet = `// FlowCode Macro: GetKeypad & LCD_Print\nWHILE (1)\n   key = Keypad::GetKey()\n   IF (key != 0)\n      LCD::PrintString("Pressed: ")\n      LCD::PrintCharacter(key)\n      DELAY_MS(200)\n   ENDIF\nENDWHILE`;
         navigator.clipboard.writeText(snippet).then(() => {
             const copyBtn = document.getElementById('copyFlowSnippet');
-            const originalText = copyBtn.innerHTML;
             copyBtn.innerHTML = "✅ Copied!";
-            setTimeout(() => {
-                copyBtn.innerHTML = originalText;
-            }, 1500);
+            setTimeout(() => { copyBtn.innerHTML = "📋 Copy FlowCode Macro"; }, 1500);
         });
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-        generateKeypadGrid();
-        updateLCDAndDisplay();
-        
-        lcdDisplayElement.innerHTML = "> FlowCode v10<br>LCD + Keypad Matrix";
-        setTimeout(() => updateLCDAndDisplay(), 1200);
-
-        document.getElementById('resetDemoBtn').addEventListener('click', (e) => {
-            e.preventDefault();
-            resetSystem();
-        });
-        
-        document.getElementById('copyFlowSnippet').addEventListener('click', (e) => {
-            e.preventDefault();
-            copyMacroSnippet();
-        });
-    });
+    // Početno kašnjenje za realističan boot interfejsa
+    setTimeout(updateLCDAndDisplay, 1500);
 </script>
 </body>
 </html>
